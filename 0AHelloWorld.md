@@ -137,4 +137,17 @@ The lab will be posted at the workshop start.
 
 12. From command line: `npm start` 
 
-## TypeScript Steps
+## TypeScript Steps (with a little help from the CLI)
+
+1. From admin command line in parent directory: `ng new connect-ts-ng2`
+
+2. Go surf the web for awhile. 
+
+3. No, seriously, go surf the web for awhile. 
+
+4. `cd connect-ts-ng2` 
+
+5. `ng serve` 
+
+6. Open [http://localhost:4200](http://localhost:4200)
+
