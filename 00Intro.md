@@ -1,3 +1,4 @@
 # Angular 2 Intro Lab Steps
 
-The lab will be posted at the workshop start.
+[View the Deck](./00Intro/ng2.pptx)
+
