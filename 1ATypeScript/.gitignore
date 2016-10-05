@@ -1,0 +1,4 @@
+node_modules
+.vscode 
+examples/*.js
+examples/*.js.map

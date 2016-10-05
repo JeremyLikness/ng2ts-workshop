@@ -30,14 +30,14 @@ modules to pre-load the dependent packages and save development time during the 
 
 The following modules will be covered in the workshop.
 
-### 1. Angular Intro 
+### 1. Angular Intro (30 minutes)
 
 A quick background introduction to Angular, its history, and its use in
 modern web applications.
 
 [Click here for the lab](./00Intro.md)
 
-### 2. Angular "Hello, World." 
+### 2. Angular "Hello, World." (30 minutes)
 
 A quick and easy Angular project.
 
@@ -51,13 +51,13 @@ The project in JavaScript.
 
 The project in TypeScript. 
 
-### 3. Angular-CLI 
+### 3. Angular-CLI (20 minutes)
 
 A command line tool to scaffold and rapidly develop Angular 2 apps.
 
 [Click here for the lab](./10AngularCLI.md)
 
-### 4. TypeScript 
+### 4. TypeScript (1 hour)
 
 A quick introduction to TypeScript and its various benefits.
 
