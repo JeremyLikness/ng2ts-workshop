@@ -65,9 +65,21 @@ A quick introduction to TypeScript and its various benefits.
 
 ### 5. Components, Directives, and Pipes 
 
+Getting started with the basics.
+
+[Click here for the lab](./20CompDirPipe.md)
+
 ### 6. Dependency Injection 
 
+Understanding lifetime and providers.
+
+[Click here for the lab](./2ADependencyInjection.md)
+
 ### 7. Data-Binding 
+
+How data flows from parents through to children. 
+
+[Click here for the lab](./30DataBinding.md)
 
 ### 8. Asynchronous Operations and RxJS 
 

@@ -1,0 +1,15 @@
+<p>
+  experiment works!
+</p>
+<div>Normal div</div>
+<div class="red">Red Div</div>
+<div [innerText]="'Clickable'" [class.red]="red" [class.green]="!red" (click)="red=!red"></div>
+<p #connector>Some text</p>
+<input type="text" #myInput (keyup)="connector.innerText=myInput.value"/>
+<p>{{data|reverse:20}}</p>
+<input appFocus [appFocusTimeout]="2000" type="text" [(ngModel)]="data"/>
+<p>{{componentData}}</p>
+<p #componentReferenced></p>
+<p>{{dateProperty}}</p>
+<p>{{dateProperty|date}}</p>
+<p>{{dateProperty|date:'shortDate'}}</p>
