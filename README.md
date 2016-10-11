@@ -13,18 +13,23 @@ ensure the best possible experience (this will help minimize any potential issue
 
 The following cross-platform resources will be required to participate in this workshop:
 
-Node.js environment: [Install from this Link](https://nodejs.org/en/)
+Node.js environment (LTS): [Install from this Link](https://nodejs.org/en/)
 
-Angular-CLI scaffold and rapid development tool: `npm i -g angular-cli` 
+Angular-CLI scaffold and rapid development tool: `npm i -g angular-cli@latest` 
 
 Visual Studio Code Interactive Development Environment (IDE): [Install from this Link](https://code.visualstudio.com/) 
 
 .NET Core Backend Platform: [Install from this Link](https://www.microsoft.com/net/core)
 
-Optional Container Platform: Docker [Install from this Link](https://docs.docker.com/engine/installation/)
+*Optional* Container Platform: Docker [Install from this Link](https://docs.docker.com/engine/installation/)
 
 You may want to look ahead and complete the initial set up and `npm install` steps for various 
-modules to pre-load the dependent packages and save development time during the workshop. 
+modules to pre-load the dependent packages and save development time during the workshop. Make a few 
+starter projects like this: 
+
+`ng new project-a`
+`ng new project-b`
+`ng new project-c` 
 
 ## Modules 
 
