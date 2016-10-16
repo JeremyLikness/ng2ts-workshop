@@ -2,9 +2,9 @@
 
 Angular 2 dependency injection is based on three components that are hierarchical in nature: 
 
-1. *Injector* - this is the API that manages dependencies
-2. *Provider* - this describes how dependencies are created
-3. *Dependency* - this is the object type for the dependency
+1. **Injector** - this is the API that manages dependencies
+2. **Provider** - this describes how dependencies are created
+3. **Dependency** - this is the object type for the dependency
 
 The injector by default creates singleton instances that are referenced throughout the application. A dependency can be overridden by a child component or explicitly requested using the `Injector` class. 
 
@@ -115,9 +115,48 @@ Next, add the constructor:
         this.title = 'app works! max is: ' + maxNumber;
     }
   
-
+Save and refresh the app. Verify the value was successfully injected. The `@Inject` attribute allows you to use the string tag for the dependency instead of a type, because `number` is too generic. 
 
 ## Factory: Conditional Creation 
 
+Modify the number service to allow setting the max number and only generate numbers in the appropriate range: 
+
+    import { Injectable } from '@angular/core';
+
+    @Injectable()
+    export class NumberService {
+
+        private _number: number = null;
+        public maxNumber: number = 100;
+
+        public getNumber(): number {
+            return this._number || 
+            (this._number = Math.floor(Math.random() * this.maxNumber));
+        }
+
+    }
+
+This approach "lazy loads" the number on the first call and uses the `maxNumber` property so it can be set after the service is constructed.
+
+Note: you *could* use `Inject` and inject the max number into the constructor, because services also resolve their own dependencies, but this demo is intended to show you how you can use a factory method.
+
+If you save and refresh the app at this point, the numbers generated are still between 0 and 100 despite the max value being set to 50. Let's fix that. In `show-number.component.ts` add `Inject` to the imports from `@angular/core` and then change the `providers` declaration to this: 
+
+    providers: [{provide: NumberService, 
+        useFactory: (maxNumber) => {
+            let numberService = new NumberService();
+            numberService.maxNumber = maxNumber;
+            return numberService;
+        },
+        deps: ['maxNumber'] 
+    }],
+
+Refresh the app and you'll see the numbers generated are now in the range (go ahead and change the value to something small like 5 to see). Although this is a very contrived example, you should be able to see how a simple configuration value can be used to generate or configure dependencies as needed. For example, you could configure whether or not email services are available and return a "no op" class if they are not, or a class that interacts with an email service if they are. 
 
 ## Mocking: Replacing the Instance
+
+Finally, the type simply designates the appropriate signature. You can easily mock the type by providing something different. Update the `providers` declaration for `show-number.component.ts` to this: 
+
+`providers: [{provide: NumberService, useValue: { getNumber: () => 42 }}],`
+
+Now refresh the app and you will find the number generated is always the [answer to the ultimate question of life, the universe, and everything](https://en.wikipedia.org/wiki/42_(number)#The_Hitchhiker.27s_Guide_to_the_Galaxy).  
