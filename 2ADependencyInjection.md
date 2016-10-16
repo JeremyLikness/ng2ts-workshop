@@ -89,11 +89,33 @@ The injector by default creates singleton instances that are referenced througho
 
 12. Serve and access the website 
 
-
+Notice that each number is the same. The components each get the same (singleton) copy of the service and therefore receive the same number.
 
 ## Children: Creating a New Instance  
 
+In Angular 2, dependency injection is hierarchical. That means you can inject new instances. Open `show-number.component.ts` and add a `providers` declaration after the `selector` declaration: 
+
+`providers: [NumberService],`
+
+Save and let the app refresh. This time each number will be unique because a new version of the service is being created.
+
 ## Value: Configuration Injection 
+
+Add a value for `maxNumber` to the `providers` declaration in `app.module.ts`: 
+
+`providers: [NumberService, {provide: 'maxNumber', useValue: 50}],`
+
+In `app.component` add a constructor that takes the value in. First, add `Inject` to the import statement: 
+
+`import { Component, Inject } from '@angular/core';`
+
+Next, add the constructor: 
+
+    constructor(@Inject('maxNumber')maxNumber: number) {
+        this.title = 'app works! max is: ' + maxNumber;
+    }
+  
+
 
 ## Factory: Conditional Creation 
 

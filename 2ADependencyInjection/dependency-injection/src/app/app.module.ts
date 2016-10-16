@@ -17,7 +17,7 @@ import { ShowNumberComponent } from './show-number/show-number.component';
     FormsModule,
     HttpModule
   ],
-  providers: [NumberService],
+  providers: [NumberService, {provide: 'maxNumber', useValue: 50}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
