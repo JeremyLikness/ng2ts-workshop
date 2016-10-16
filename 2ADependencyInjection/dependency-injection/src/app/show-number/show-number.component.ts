@@ -3,6 +3,7 @@ import { NumberService } from '../number.service';
 
 @Component({
   selector: 'show-number',
+  providers: [NumberService],
   templateUrl: './show-number.component.html',
   styleUrls: ['./show-number.component.css']
 })
