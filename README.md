@@ -68,32 +68,31 @@ A quick introduction to TypeScript and its various benefits.
 
 [Click here for the lab](./1ATypeScript.md)
 
-### 5. Components, Directives, and Pipes 
+### 5. Components, Directives, and Pipes (30 minutes)
 
 Getting started with the basics.
 
 [Click here for the lab](./20CompDirPipe.md)
 
-### 6. Dependency Injection 
+### 6. Dependency Injection (30 minutes)
 
 Understanding lifetime and providers.
 
 [Click here for the lab](./2ADependencyInjection.md)
 
-### 7. Data-Binding 
+### 7. Data-Binding (30 minutes)
 
 How data flows from parents through to children. 
 
 [Click here for the lab](./30DataBinding.md)
 
-### 8. Asynchronous Operations and RxJS 
+### 8. Asynchronous Operations and RxJS (30 minutes)
 
-### 9. Routing and Page Navigation 
+### 9. Routing and Page Navigation (30 minutes)
 
 ### 10. Advanced Topics 
 
-#### Testing 
-
-#### Migration
-
-#### Containers 
+* Scaffold a full SPA app 
+* Testing 
+* Migration
+* Containers 
