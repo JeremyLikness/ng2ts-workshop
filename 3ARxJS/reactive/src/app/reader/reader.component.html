@@ -1,0 +1,7 @@
+<input #filter type="text" placeholder="enter filter" 
+  (keyup)="loadFile(filter.value, selection.options[selection.selectedIndex].id)"/>
+<select #selection>
+  <option id="sample.dat" selected="selected">Bad File</option>
+  <option id="sample.txt">Good File</option>
+</select>
+<p>{{result || 'Choose a file and start typing a filter'}}</p>

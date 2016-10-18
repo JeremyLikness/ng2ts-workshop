@@ -88,6 +88,8 @@ How data flows from parents through to children.
 
 ### 8. Asynchronous Operations and RxJS (30 minutes)
 
+[Click here for the lab](./3ARxJS.md)
+
 ### 9. Routing and Page Navigation (30 minutes)
 
 ### 10. Advanced Topics 
