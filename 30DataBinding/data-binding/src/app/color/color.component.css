@@ -1,0 +1,8 @@
+div {
+    width: 100px; 
+    height: 100px; 
+    border: solid 2px black; 
+    background: white;
+    margin: 5px;
+    padding: 5px;
+}

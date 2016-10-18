@@ -1,3 +1,7 @@
 <h1>
   {{title}}
 </h1>
+<app-color [red]="red" [green]="green" [blue]="blue"></app-color>
+<app-color-slider [color]="'red'" [colorValue]="red" (onColorValueChange)="red=$event"></app-color-slider>
+<app-color-slider [color]="'green'" [colorValue]="green" (onColorValueChange)="green=$event"></app-color-slider>
+<app-color-slider [color]="'blue'" [colorValue]="blue" (onColorValueChange)="blue=$event"></app-color-slider>

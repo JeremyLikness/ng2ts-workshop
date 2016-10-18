@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  public red: number = 64;
+  public green: number = 128; 
+  public blue: number = 192; 
 }
