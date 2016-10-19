@@ -17,6 +17,7 @@ The injector by default creates singleton instances that are referenced througho
 4. Create a number component: `ng g component show-number` 
 5. `code .` to launch the IDE 
 6. Update `number.service.ts`: 
+
     ```TypeScript
     import { Injectable } from '@angular/core';
 
@@ -36,14 +37,17 @@ The injector by default creates singleton instances that are referenced througho
     }
 ```
 7. Import the number service to `app.module.ts`: 
+
     ```TypeScript
 import { NumberService } from './number.service';
 ```
 8. Add the number service to the providers array for `@NgModule` in `.app.module.ts`: 
+
     ```TypeScript
 providers: [NumberService],
 ```
 9. Update `show-number\show-number.component.ts`:
+
     ```TypeScript
     import { Component, OnInit } from '@angular/core';
     import { NumberService } from '../number.service';
@@ -66,10 +70,12 @@ providers: [NumberService],
     }
 ```
 10. Replace the HTML for `show-number\show-number.component.html`: 
+
     ```html
 <h2>{{number}}</h2>
 ```
 11. Add the `show-number` directive three times to `app.component.html`:
+
     ```html
     <h1>
         {{title}}
@@ -85,6 +91,7 @@ Notice that each number is the same. The components each get the same (singleton
 ## Children: Creating a New Instance  
 
 In Angular 2, dependency injection is hierarchical. That means you can inject new instances. Open `show-number.component.ts` and add a `providers` declaration after the `selector` declaration: 
+
 ```TypeScript
 providers: [NumberService],
 ```
@@ -93,14 +100,17 @@ Save and let the app refresh. This time each number will be unique because a new
 ## Value: Configuration Injection 
 
 Add a value for `maxNumber` to the `providers` declaration in `app.module.ts`: 
+
 ```TypeScript
 providers: [NumberService, {provide: 'maxNumber', useValue: 50}],
 ```
 In `app.component` add a constructor that takes the value in. First, add `Inject` to the import statement: 
+
 ```TypeScript
 import { Component, Inject } from '@angular/core';
 ```
 Next, add the constructor: 
+
 ```TypeScript
     constructor(@Inject('maxNumber')maxNumber: number) {
         this.title = 'app works! max is: ' + maxNumber;
@@ -111,6 +121,7 @@ Save and refresh the app. Verify the value was successfully injected. The `@Inje
 ## Factory: Conditional Creation 
 
 Modify the number service to allow setting the max number and only generate numbers in the appropriate range: 
+
 ```TypeScript
     import { Injectable } from '@angular/core';
 
@@ -132,6 +143,7 @@ This approach "lazy loads" the number on the first call and uses the `maxNumber`
 Note: you *could* use `Inject` and inject the max number into the constructor, because services also resolve their own dependencies, but this demo is intended to show you how you can use a factory method.
 
 If you save and refresh the app at this point, the numbers generated are still between 0 and 100 despite the max value being set to 50. Let's fix that. In `show-number.component.ts` add `Inject` to the imports from `@angular/core` and then change the `providers` declaration to this: 
+
 ```TypeScript
     providers: [{provide: NumberService, 
         useFactory: (maxNumber) => {
@@ -147,6 +159,7 @@ Refresh the app and you'll see the numbers generated are now in the range (go ah
 ## Mocking: Replacing the Instance
 
 Finally, the type simply designates the appropriate signature. You can easily mock the type by providing something different. Update the `providers` declaration for `show-number.component.ts` to this: 
+
 ```TypeScript
 providers: [{provide: NumberService, useValue: { getNumber: () => 42 }}],
 ```
