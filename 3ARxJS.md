@@ -142,13 +142,50 @@ Notice that because the result is updated from inside a subscription, Angular 2 
 
 ## Polling 
 
-1. You can create streams that poll on a regular interval. Create a service to return the current date `ng g service get-date` 
+1. You can create streams that poll on a regular interval. Create a service to return the current date `ng g service get-date`
 
-2. Place this code in `get-date.service.ts` 
+2. Register the service in `app.module.ts` by importing it and listing it in the `Providers` declaration 
 
-3. Update `reader\reader.component.html` to show the list of times - note the use of the async pipe 
+3. Place this code in `get-date.service.ts`:
 
-4. Place this code in `reader\reader.component.ts` 
 
+    import { Injectable } from '@angular/core';
+    import { Observable } from 'RxJs';
+
+    @Injectable()
+    export class GetDateService {
+
+        constructor() { }
+
+        public getDate(): Observable<Date> {
+            return Observable.from([new Date()]);
+        }
+
+    }
+
+3. Import the date service into `reader\reader.component.ts`: 
+
+`import { GetDateService } from '../get-date.service';`
+
+4. Expose an array for dates and inject the date service into the constructor: 
+
+
+    public dates: Date[] = [];
+    constructor(private http: Http, private change: ChangeDetectorRef, private svc: GetDateService) { }
+
+5. Add the following code to poll. This will poll the date service every second, and stop after 10 polls. You can remove the `take` statement to continuously poll, and just as easily change the service to an http call instead of a date service call for real world scenarios. 
+
+
+    Observable.interval(1000).switchMap(() => this.svc.getDate())
+        .take(10)
+        .subscribe(date => this.dates.push(date));
+
+6. Update `reader\reader.component.html` to show the time portion of the dates (add this to the end): 
+
+
+    <h2>Times</h2>
+    <span *ngFor="let date of dates">{{date | date:'mm:ss'}}&nbsp;</span>
+
+Refresh to watch the times scroll across every second and stop at 10 entries, and the ponder the amazing possibilities! 
 
 

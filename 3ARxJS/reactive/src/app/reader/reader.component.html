@@ -4,3 +4,5 @@
   <option id="sample.txt">Good File</option>
 </select>
 <p>{{result || 'Choose a file and start typing'}}</p>
+<h2>Times</h2>
+<span *ngFor="let date of dates">{{date | date:'mm:ss'}}&nbsp;</span>
