@@ -12,8 +12,8 @@ The lab will be posted at the workshop start.
 
 4. New file `package.json` 
 
-`    {`
 
+    {
         "name": "angular2-quickstart",
         "version": "1.0.0",
         "scripts": {
