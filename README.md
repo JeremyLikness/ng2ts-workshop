@@ -27,9 +27,20 @@ You may want to look ahead and complete the initial set up and `npm install` ste
 modules to pre-load the dependent packages and save development time during the workshop. Make a few 
 starter projects like this: 
 
-`ng new project-a`
-`ng new project-b`
-`ng new project-c` 
+`ng new connect-ts-ng2`
+
+`ng new dependency-injection`
+
+`ng new data-binding`
+
+`ng new reactive` 
+
+>**Note** This repository contains several projects in their finished state. Many of the labs
+>involve transitory states to teach functionality in an iterative fashion. Although you can run
+>the existing labs, it is recommended you walk through the code tutorials to receive the full benefit.
+>For the existing labs, change to the root directory of any given lab and run `npm install` then `ng serve` 
+>to view the lab. For the labs you work on, it is suggested you create your own parent level folder, i.e. `lab`, 
+>to run the labs from (so you will end up with `lab\connect-ts-ng2` and `lab\dependency-injection` etc.)
 
 ## Modules 
 
