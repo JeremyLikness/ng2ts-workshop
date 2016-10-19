@@ -72,7 +72,15 @@ Update the default result text if you like.
 
 3. Implement the function to filter words based on user input in `reader\reader.component.ts`: 
 
-4. Notice that the filter is applied immediately as you type. Update the stream to debounce so that we: 
+
+    public loadFile(filter: string, fileName: string): void {
+        this.http.get('assets/' + fileName)
+        .subscribe(result =>
+            this.result = result.text().split(' ').filter(line => line.indexOf(filter) >= 0).join(' '),
+            error => this.result = error);
+    }
+
+4. Notice that the filter is applied immediately as you type. Now we will update the stream to debounce so that we: 
 
     4a. Don't filter until the user pauses typing 
     
@@ -80,7 +88,56 @@ Update the default result text if you like.
 
     4c. Ensure results come back in order 
 
-5. Start typing and notice the difference 
+5. Simplify the input tag to this: 
+
+`<input #filter type="text" placeholder="enter filter"/>`
+
+6. Update the `reader\reader.component.ts` to use observables to watch the input events, debounce, avoid duplicates, etc.: 
+
+    import { Component, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+
+    import { Http } from '@angular/http';
+
+    import { Observable } from 'RxJs';
+    import 'rxjs/add/operator/map';
+
+    @Component({
+        selector: 'app-reader',
+        templateUrl: './reader.component.html',
+        styleUrls: ['./reader.component.css']
+    })
+    export class ReaderComponent implements AfterViewInit {
+
+        @ViewChild('filter')
+        public inputElement: ElementRef;
+
+        @ViewChild('selection')
+        public selectElement: ElementRef;
+
+        public result: string;
+
+        constructor(private http: Http, private change: ChangeDetectorRef) { }
+
+        public loadFile(filter: string, fileName: string): Observable<string> {
+            return this.http.get('assets/' + fileName)
+            .map(result => result.text().split(' ').filter(line => line.indexOf(filter) >= 0).join(' '));
+        }
+
+        ngAfterViewInit() {
+            let select = this.selectElement.nativeElement as HTMLSelectElement;
+            let input = this.inputElement.nativeElement as HTMLInputElement;
+            let typing = Observable.fromEvent(input, 'keyup');
+            typing.debounceTime(400).distinctUntilChanged().
+            flatMap(filter => this.loadFile(input.value, select.options[select.selectedIndex].id))
+            .subscribe(word => {
+                this.result = word;
+                this.change.detectChanges();
+                }, err => this.result = err);
+        }
+    }
+
+
+Notice that because the result is updated from inside a subscription, Angular 2 won't know the model has mutated (it's outside of a zone) so we use the change detector to detect the changes.
 
 ## Polling 
 
