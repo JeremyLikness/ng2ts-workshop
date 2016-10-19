@@ -12,7 +12,7 @@ The lab will be posted at the workshop start.
 
 4. New file `package.json` 
 
-
+```JavaScript
     {
         "name": "angular2-quickstart",
         "version": "1.0.0",
@@ -41,6 +41,7 @@ The lab will be posted at the workshop start.
         "lite-server": "^2.2.0"
         }
     }
+```
 
 5. From command line at root of project: `npm install` 
 
@@ -48,7 +49,7 @@ The lab will be posted at the workshop start.
 
 7. Create `app/app.component.js` 
 
-
+```JavaScript
     (function(app) {
         app.AppComponent =
         ng.core.Component({
@@ -59,10 +60,11 @@ The lab will be posted at the workshop start.
             constructor: function() {}
         });
     })(window.app || (window.app = {}));
+```
 
 8. Create `app/app.module.js` 
 
-
+```JavaScript
     (function(app) {
     app.AppModule =
         ng.core.NgModule({
@@ -74,10 +76,11 @@ The lab will be posted at the workshop start.
             constructor: function() {}
         });
     })(window.app || (window.app = {}));
+```
 
 9. Create `app/main.js` 
 
-
+```JavaScript
     (function(app) {
         document.addEventListener('DOMContentLoaded', function() {
             ng.platformBrowserDynamic
@@ -85,10 +88,11 @@ The lab will be posted at the workshop start.
             .bootstrapModule(app.AppModule);
         });
     })(window.app || (window.app = {}));
+```
 
 10. Create `index.html` 
 
-
+```html
     <html>
     <head>
         <title>Connect.TECH Angular 2 Lab</title>
@@ -121,11 +125,12 @@ The lab will be posted at the workshop start.
         <my-app>Loading...</my-app>
     </body>
 
-    </html>
+</html>
+```
 
 11. Create `styles.css` 
 
-
+```css
     h1 {
         color: #369;
         font-family: Arial, Helvetica, sans-serif;
@@ -134,6 +139,7 @@ The lab will be posted at the workshop start.
     body {
         margin: 2em;
     }
+```
 
 12. From command line: `npm start` 
 
