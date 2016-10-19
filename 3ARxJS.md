@@ -138,7 +138,7 @@ Update the default result text if you like.
     }
 
 
-Notice that because the result is updated from inside a subscription, Angular 2 won't know the model has mutated (it's outside of a zone) so we use the change detector to detect the changes.
+Notice that because the result is updated from inside a subscription, Angular 2 won't know the model has mutated (it's outside of a zone) so we use the change detector to detect the changes. When you type, notice there is nothing happening until you pause. Then it will return the error message or the filtered words based on what you type. If you started typing in the error condition, refresh and select the good file to see the filter in action.
 
 ## Polling 
 
@@ -163,24 +163,24 @@ Notice that because the result is updated from inside a subscription, Angular 2 
 
     }
 
-3. Import the date service into `reader\reader.component.ts`: 
+4. Import the date service into `reader\reader.component.ts`: 
 
 `import { GetDateService } from '../get-date.service';`
 
-4. Expose an array for dates and inject the date service into the constructor: 
+5. Expose an array for dates and inject the date service into the constructor: 
 
 
     public dates: Date[] = [];
     constructor(private http: Http, private change: ChangeDetectorRef, private svc: GetDateService) { }
 
-5. Add the following code to poll. This will poll the date service every second, and stop after 10 polls. You can remove the `take` statement to continuously poll, and just as easily change the service to an http call instead of a date service call for real world scenarios. 
+6. Add the following code to poll. This will poll the date service every second, and stop after 10 polls. You can remove the `take` statement to continuously poll, and just as easily change the service to an http call instead of a date service call for real world scenarios. 
 
 
     Observable.interval(1000).switchMap(() => this.svc.getDate())
         .take(10)
         .subscribe(date => this.dates.push(date));
 
-6. Update `reader\reader.component.html` to show the time portion of the dates (add this to the end): 
+7. Update `reader\reader.component.html` to show the time portion of the dates (add this to the end): 
 
 
     <h2>Times</h2>
