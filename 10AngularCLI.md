@@ -36,7 +36,7 @@
 
 2. Populate it: 
 
-```COMMAND
+    ```COMMAND
     FROM nginx 
     COPY dist /usr/share/nginx/html 
     EXPOSE 80/tcp
@@ -46,7 +46,7 @@
 
 4. Populate it: 
 
-```
+    ```
     coverage
     e2e
     node_modules
@@ -58,10 +58,10 @@
 6. `ng build -prod` 
 
 7. From the command prompt, build the container: 
-`docker build -t ng2inabox .` 
+    `docker build -t ng2inabox .` 
 
 8. Run the container: 
-`docker run --name ng2box -p 8192:80 -d ng2inabox` 
+    `docker run --name ng2box -p 8192:80 -d ng2inabox` 
 
 9. [http://localhost:8192](http://localhost:8192) 
 
@@ -69,7 +69,7 @@
 
 11. Find the stopped container: `docker ps -a` 
 
-```code
+    ```code
     CONTAINER ID        IMAGE               COMMAND                  CREATED             
     2dc3559a01be        ng2inabox           "nginx -g 'daemon off"   42 minutes ago      
     STATUS                      PORTS               NAMES

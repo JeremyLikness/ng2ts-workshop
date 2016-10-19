@@ -14,7 +14,7 @@
 
 4. Create `package.json` 
 
-```JavaScript
+    ```JavaScript
     {
         "name": "connect-tech-typescript",
         "version": "1.0.0",
@@ -39,7 +39,7 @@
 
 5. Create `tsconfig.json` 
 
-```JavaScript
+    ```JavaScript
     {
         "compilerOptions": {
             "target": "es5",

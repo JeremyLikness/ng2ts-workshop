@@ -54,41 +54,41 @@ Save it.
 Components always have templates. Start with a simple template to see some of Angular 2's built-in features. Open `experiment.component.html` and add the following (save after each step to watch the page refresh)
 
 1. Add a normal `div` and see how it takes on the CSS style. Also note we used the special `:host` selector in the CSS file to set a style at the parent level, thus formatting all of the children to use the `sans-serif` font family. 
-```html
+    ```html
     <div>Normal div</div>
 ```
 2. Add another div and explicitly set the `class` property using an attribute: 
-```html
+    ```html
     <div class="red">Red Div</div>
 ```
 3. Use square braces to bind to any property. Add the following snippet, save it, and click inside the "clickable" div. 
-```html
+    ```html
     <div [innerText]="'Clickable'" [class.red]="red" [class.green]="!red" (click)="red=!red"></div>
 ```
 A few things are going on here. The `innerText` property was bound to the string literal "clickable" which is why the word is in quotes. When the square braces exist, the value should be an expression. In the case of `class.red` Angular 2 will add or remove the class based on whether the expression is true. Notice a similar expression is set for the `class.green` so they will toggle. A curved brace (parenthesis) is used to bind to any event. In the example, the `click` event triggers an expression that flips the value `red`. Normally, you would define properties in the code for the controller, but here we reference the `red` variable. At first it is `undefined` which is why the `div` is green, but once clicked it gets set to a value and toggles back and forth. 
 4. Now add the following and save:
-```html
+    ```html
     <p #connector>Some text</p>
     <input type="text" #myInput (keyup)="connector.innerText=myInput.value"/>
 ```
 The `#` symbol references a local variable that is scoped to the DOM element. So, in this example, `#connector` creates a local variable `connector` that references the `p` DOM element. In the input box, the `keyup` event is used to copy the value of the input box, referenced as `myInput`, to the inner text of the `p` tag. This isn't data-binding, but shows how Angular enables direct DOM manipulation. 
 5. Now add this: 
-```html
+    ```html
     <p>{{data}}</p>
     <input type="text" [(ngModel)]="data"/>
 ```
 This behaves the same way, but sets up data-binding with a property named `data`. The special square and curved around `ngModel` indicate two-way data binding. The parenthesis trigger the event the associated element updates the binding and pushes its value to the model. The square braces trigger the data-binding to receive the value from the model. 
 6. Add the following two lines and save. Nothing will happen just yet.
-```html
+    ```html
     <p>{{componentData}}</p>
     <p #componentReferenced></p>
 ```
 ### Component 
 
 Open the component's code `experiment.component.ts`. By default, it is using the `OnInit` [component lifecycle hook](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html). These hooks enable you to trigger code at various points in the component's lifecycle. Use `ngOnInit` to initialize the data. First, add this variable to the class: 
-
-`public componentData: string = 'Initializing...';`
-
+```TypeScript
+public componentData: string = 'Initializing...';
+```
 Now update the method to set the variable: 
 
 ```JavaScript
@@ -126,19 +126,19 @@ Components always have associated templates. Directives apply behaviors to eleme
 2. Open `app.module.ts` and note how the directive was added to the module for you, along with the component you previously created. 
 3. Open `focus.directive.ts` and import `ElementRef` from `@angular/core` 
 4. Inject the element the directive is associated with in the constructor, then use a timeout to set the focus in the next event loop: 
-```TypeScript
+    ```TypeScript
     constructor(private elem: ElementRef) {
         setTimeout(() => this.elem.nativeElement.focus(), 0);
     }
 ```
 5. Open `experiment.component.html` and use the directive on the second `input` tag: 
-```html
+    ```html
     <input appFocus type="text" [(ngModel)]="data"/>`
 ```
 6. Save and allow the browser to refresh. It should automatically set focus to the second `input` tag so you can begin typing right away.
 7. Import `Input` from `@angular/core` in `focus.directive.ts`
 8. Update the directive to support a parameter. The code should be changed to: 
-```TypeScript
+    ```TypeScript
     export class FocusDirective {
 
         private _timeout: number = 0;
@@ -161,7 +161,7 @@ Components always have associated templates. Directives apply behaviors to eleme
     }
 ```
 9. Update `experiment.component.html` to use the parameter: 
-```html
+    ```html
     <input appFocus [appFocusTimeout]="2000" type="text" [(ngModel)]="data"/>`
 ```
 10. Save and notice the 2 second delay before focus is set 
@@ -171,11 +171,11 @@ Components always have associated templates. Directives apply behaviors to eleme
 Pipes provide simple data transformations. 
 
 1. Add a property to `experiment.component.ts` with a date: 
-```TypeScript
+    ```TypeScript
 public dateProperty: Date = new Date(); 
 ```
 2. Add the following to the end of `experiment.component.html`: 
-```html
+    ```html
     <p>{{dateProperty}}</p>
     <p>{{dateProperty|date}}</p>
     <p>{{dateProperty|date:'shortDate'}}</p>
@@ -183,7 +183,7 @@ public dateProperty: Date = new Date();
 3. Save and note the different dates when the browser refreshes 
 4. Create a pipe: `ng g pipe reverse` 
 5. Open `reverse.pipe.ts` and update the code to reflect the following: 
-```TypeScript
+    ```TypeScript
     export class ReversePipe implements PipeTransform {
 
         transform(value: string, substr?: number): any {
@@ -200,7 +200,7 @@ public dateProperty: Date = new Date();
     }
 ```
 6. Modify the `p` data-binding to `data` in `experiment.component.html` to use the pipe: 
-```html
+    ```html
 <p>{{data|reverse:20}}</p>
 ```
 7. Save and begin typing when the browser refreshes and the second input box receives focus. Watch the effect. 

@@ -11,13 +11,13 @@ The injector by default creates singleton instances that are referenced througho
 ## Basics: A Number Generation Service 
 
 1. Start a new project: 
-`ng new dependency-injection` 
+    `ng new dependency-injection` 
 2. Change to the `dependency-injection` directory.
 3. Create the number service: `ng g service number` 
 4. Create a number component: `ng g component show-number` 
 5. `code .` to launch the IDE 
 6. Update `number.service.ts`: 
-```TypeScript
+    ```TypeScript
     import { Injectable } from '@angular/core';
 
     @Injectable()
@@ -36,15 +36,15 @@ The injector by default creates singleton instances that are referenced througho
     }
 ```
 7. Import the number service to `app.module.ts`: 
-```TypeScript
+    ```TypeScript
 import { NumberService } from './number.service';
 ```
 8. Add the number service to the providers array for `@NgModule` in `.app.module.ts`: 
-```TypeScript
+    ```TypeScript
 providers: [NumberService],
 ```
 9. Update `show-number\show-number.component.ts`:
-```TypeScript
+    ```TypeScript
     import { Component, OnInit } from '@angular/core';
     import { NumberService } from '../number.service';
 
@@ -66,11 +66,11 @@ providers: [NumberService],
     }
 ```
 10. Replace the HTML for `show-number\show-number.component.html`: 
-```html
+    ```html
 <h2>{{number}}</h2>
 ```
 11. Add the `show-number` directive three times to `app.component.html`:
-```html
+    ```html
     <h1>
         {{title}}
     </h1>
