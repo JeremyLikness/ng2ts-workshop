@@ -166,6 +166,7 @@ Components always have associated templates. Directives apply behaviors to eleme
 ```
 10. Save and notice the 2 second delay before focus is set 
 *Note*: If you the focus doesn't appear to be set, it may be because you have the console open. Click inside the browser window (outside of the console) and refresh to see the behavior work. 
+
 ## Pipes 
 Pipes provide simple data transformations. 
 
