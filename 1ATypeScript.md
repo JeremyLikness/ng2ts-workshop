@@ -80,7 +80,7 @@
 
     d. [005complex.ts](./1ATypeScript/examples/005complex.ts)
 
-    e. [006generics.ts](./1ATypeScript/examples/006generics.ts)
+    e. [006.generics.ts](./1ATypeScript/examples/006.generics.ts) [oops]
 
     f. [007mixins.ts](./1ATypeScript/examples/007mixins.ts)
 
