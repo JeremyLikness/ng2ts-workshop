@@ -94,6 +94,7 @@ Update the default result text if you like.
 
 6. Update the `reader\reader.component.ts` to use observables to watch the input events, debounce, avoid duplicates, etc.: 
 
+
     import { Component, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 
     import { Http } from '@angular/http';
