@@ -68,4 +68,43 @@ In this lab you'll scaffold a full .NET Core Angular 2 app. .NET Core is cross-p
 
 ## Build a Container (Advanced) 
 
+1. Install scaffold for Docker: `npm i -g generator-docker` 
+
+2. From the project root type `yo docker` 
+
+3. Choose ".NET Core" 
+
+4. Choose "rtm" 
+
+5. Select "Y" for using a web server 
+
+6. Type 5000 for the port 
+
+7. Keep the defaults for the image, service, and compose project
+
+8. Y to overwrite Dockerfile 
+
+9. If Visual Studio Code is open, close it and reopen it 
+
+10. Hit F5. This will build a special debug container and start debugging from the container! 
+
+11. Place breakpoints and test out the debug functionality. It will work in the TypeScript and .NET Core code. 
+
+12. Stop debugging 
+
+13. At the command line, type for Windows: 
+
+`powershell -ExecutionPolicy RemoteSigned .\dockerTask.ps1 -Build -Environment release` 
+
+13. At the command line, type for non-Windows: 
+
+`bash -c ./dockerTask.sh build release` 
+
+14. Examine the image size `docker images` - this is an optimized image 
+
+15. Run it! 
+
+>**Note:** You may have to update the image (in the FROM line, first line of the Docker file) to 1.0.1 for this to work.
+
+
 
