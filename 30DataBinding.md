@@ -22,7 +22,7 @@ Create a new project `ng new data-binding`
 
 2. Add this to `color\color.component.css`: 
 
-    ```html
+    ```css
     div {
         width: 100px; 
         height: 100px; 

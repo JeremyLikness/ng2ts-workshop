@@ -94,17 +94,17 @@ In this lab you'll scaffold a full .NET Core Angular 2 app. .NET Core is cross-p
 
 13. At the command line, type for Windows: 
 
-`powershell -ExecutionPolicy RemoteSigned .\dockerTask.ps1 -Build -Environment release` 
+    `powershell -ExecutionPolicy RemoteSigned .\dockerTask.ps1 -Build -Environment release` 
 
 13. At the command line, type for non-Windows: 
 
-`bash -c ./dockerTask.sh build release` 
+    `bash -c ./dockerTask.sh build release` 
 
 14. Examine the image size `docker images` - this is an optimized image 
 
 15. Run it! 
 
->**Note:** You may have to update the image (in the FROM line, first line of the Docker file) to 1.0.1 for this to work.
+    >**Note:** You may have to update the image (in the FROM line, first line of the Docker file) to 1.0.1 for this to work.
 
 
 
