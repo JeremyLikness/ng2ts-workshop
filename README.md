@@ -24,8 +24,9 @@ Visual Studio Code Interactive Development Environment (IDE): [Install from this
 *Optional* Container Platform: Docker [Install from this Link](https://docs.docker.com/engine/installation/)
 
 You may want to look ahead and complete the initial set up and `npm install` steps for various 
-modules to pre-load the dependent packages and save development time during the workshop. Make a few 
-starter projects like this: 
+modules to pre-load the dependent packages and save development time during the workshop. For the advanced lab that uses .NET Core, you will also need to run `dotnet restore` in the project root. 
+
+Make a few starter projects like this: 
 
 `ng new connect-ts-ng2`
 
@@ -34,6 +35,20 @@ starter projects like this:
 `ng new data-binding`
 
 `ng new reactive` 
+
+For the Advanced: 
+
+`npm i -g yo` 
+
+`npm i -g generator-aspnetcore-spa` 
+
+`mkdir advanced` 
+
+`cd advanced` 
+
+`yo aspnetcore-spa` 
+
+(Chose Angular 2 and the default project name).
 
 >**Note** This repository contains several projects in their finished state. Many of the labs
 >involve transitory states to teach functionality in an iterative fashion. Although you can run
@@ -101,11 +116,14 @@ How data flows from parents through to children.
 
 [Click here for the lab](./3ARxJS.md)
 
-### 9. Routing and Page Navigation (30 minutes)
+### 9. Advanced Topics (30 minutes)
 
-### 10. Advanced Topics 
+[Click here for the lab](./40Advanced.md)
 
-* Scaffold a full SPA app 
-* Testing 
-* Migration
-* Containers 
+* Scaffold a full .NET Core SPA app with database
+* Examine routing 
+* Containerize
+
+### 10. Optional Topic: Migration
+
+(This is a discussion topic)
