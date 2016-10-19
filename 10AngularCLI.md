@@ -36,20 +36,22 @@
 
 2. Populate it: 
 
-
+```COMMAND
     FROM nginx 
     COPY dist /usr/share/nginx/html 
     EXPOSE 80/tcp
+```
 
 3. Create a file in the root named '.dockerignore' 
 
 4. Populate it: 
 
-
+```
     coverage
     e2e
     node_modules
     src 
+```
 
 5. Save both files 
 
@@ -67,10 +69,11 @@
 
 11. Find the stopped container: `docker ps -a` 
 
-
+```code
     CONTAINER ID        IMAGE               COMMAND                  CREATED             
     2dc3559a01be        ng2inabox           "nginx -g 'daemon off"   42 minutes ago      
     STATUS                      PORTS               NAMES
     Exited (0) 20 seconds ago                       ng2box
+```
 
 12. Use the container id to remove the container: `docker rm 2dc3559a01be`

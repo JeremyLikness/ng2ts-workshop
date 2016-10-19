@@ -14,7 +14,7 @@
 
 4. Create `package.json` 
 
-
+```JavaScript
     {
         "name": "connect-tech-typescript",
         "version": "1.0.0",
@@ -35,10 +35,11 @@
             "typescript": "2.0.0"
         }
     }
+```
 
 5. Create `tsconfig.json` 
 
-
+```JavaScript
     {
         "compilerOptions": {
             "target": "es5",
@@ -55,6 +56,7 @@
             "typings"
         ]
     }
+```
 
 6. After saving, from the root of the project: `npm install` 
 
