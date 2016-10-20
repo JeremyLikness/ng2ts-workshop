@@ -15,7 +15,9 @@ The following cross-platform resources will be required to participate in this w
 
 Node.js environment (LTS): [Install from this Link](https://nodejs.org/en/)
 
-Angular-CLI scaffold and rapid development tool: `npm i -g angular-cli@latest` 
+>**Note:** Issues have been reported with the latest version of `npm` package manager. Some report that rolling back to a previous version works. These labs were tested with version 3.10.5.
+
+Angular-CLI scaffold and rapid development tool: `npm i -g angular-cli@1.0.0-beta.16` 
 
 Visual Studio Code Interactive Development Environment (IDE): [Install from this Link](https://code.visualstudio.com/) 
 
