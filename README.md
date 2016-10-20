@@ -15,7 +15,7 @@ The following cross-platform resources will be required to participate in this w
 
 Node.js environment (LTS): [Install from this Link](https://nodejs.org/en/)
 
->**Note:** Issues have been reported with the latest version of `npm` package manager. Some report that rolling back to a previous version works. These labs were tested with version 3.10.5.
+>**Note:** Issues have been reported with the latest version of `npm` package manager. Some report that rolling back to a previous version works. These labs were tested with version 3.10.5. On MacOS systems it has been verified that Node 6.x with npm 3.10.8 works.
 
 Angular-CLI scaffold and rapid development tool: `npm i -g angular-cli@1.0.0-beta.16` 
 
